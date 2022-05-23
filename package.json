@@ -1,0 +1,21 @@
+{
+  "name": "pulumi-cdk-http",
+  "version": "1.0.0",
+  "main": "./bin/index.js",
+  "repository": "github.com/jaxxstorm/pulumi-cdk-http",
+  "author": "Lee Briggs",
+  "license": "MIT",
+  "dependencies": {
+    "@pulumi/aws": "^4.0.0",
+    "@pulumi/pulumi": "^3.0.0",
+    "@pulumi/cdk": "^0.2.0",
+    "@types/express": "^4.17.8",
+    "@types/node": "^14.11.7",
+    "express": "^4.17.1",
+    "typescript": "~3.9.10"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "tsc && node ./bin/index.js"
+  }
+}
