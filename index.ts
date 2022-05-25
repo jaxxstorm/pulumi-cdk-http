@@ -8,6 +8,7 @@ import { s3 } from "@pulumi/aws";
 import { PolicyDocument } from "@pulumi/aws/iam";
 import * as fargate from "./fargate";
 import * as express from "express";
+import * as cors from 'cors';
 
 const projectName = "cdkhttp";
 
@@ -143,6 +144,12 @@ ensurePlugins();
 
 // configure express
 const app = express();
+
+const allowedOrigins = ['http://localhost:3000', 'http://localhost:3001'];
+const options: cors.CorsOptions = {
+  origin: allowedOrigins,
+};
+app.use(cors(options));
 app.use(express.json());
 
 // setup our RESTful routes for our Site resource
