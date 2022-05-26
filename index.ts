@@ -34,6 +34,7 @@ const createHandler: express.RequestHandler = async (req, res) => {
       program: createPulumiProgram(image),
     });
     await stack.setConfig("aws:region", { value: "us-west-2" });
+    await stack.setConfig("aws-native:region", { value: "us-west-2" });
     // deploy the stack, tailing the logs to console
     const upRes = await stack.up({ onOutput: console.info });
     //res.json({ id: stackName, url: upRes.outputs.websiteUrl.value });
